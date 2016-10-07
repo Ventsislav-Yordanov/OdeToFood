@@ -46,6 +46,13 @@ namespace OdeToFood
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler(new ExceptionHandlerOptions
+                {
+                    ExceptionHandler = context => context.Response.WriteAsync("Opps! Error! Soon this will be an error page!")
+                });
+            }
 
             app.UseWelcomePage("/welcome");
 
