@@ -1,5 +1,8 @@
-﻿namespace OdeToFood.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace OdeToFood.Controllers
 {
+    [Route("company/[controller]/[action]")]
     public class AboutController 
     {
         public string Phone()
