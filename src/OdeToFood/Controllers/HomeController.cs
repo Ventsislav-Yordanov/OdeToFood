@@ -4,7 +4,7 @@
     {
         public string Index()
         {
-            return "Hello from the HomeController";
+            return "Hello from the HomeController :)";
         }
     }
 }
