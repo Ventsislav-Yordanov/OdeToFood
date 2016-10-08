@@ -12,7 +12,7 @@ namespace OdeToFood.Controllers
                 Id = 1,
                 Name = "Happy Bar, Grill & Beer"
             };
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
