@@ -2,6 +2,7 @@
 @model OdeToFood.ViewModels.HomePageViewModel
 
 <p>@Model.CurrentMessage</p>
+@Html.ActionLink("Create new restaurnt", nameof(HomeController.Create))
 <table>
     <thead>
         <tr>
