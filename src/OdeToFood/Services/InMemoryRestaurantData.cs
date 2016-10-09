@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using OdeToFood.Entities;
+using System.Linq;
 
 namespace OdeToFood.Services
 {
@@ -15,6 +16,11 @@ namespace OdeToFood.Services
                 new Restaurant() { Id = 2, Name = "Bar and Grill Joka" },
                 new Restaurant() { Id = 3, Name = "The cat" },
             };
+        }
+
+        public Restaurant Get(int id)
+        {
+            return this.restaurants.FirstOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Restaurant> GetAll()

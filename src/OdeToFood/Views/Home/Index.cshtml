@@ -1,4 +1,5 @@
-﻿@model OdeToFood.ViewModels.HomePageViewModel
+﻿@using OdeToFood.Controllers
+@model OdeToFood.ViewModels.HomePageViewModel
 
 <p>@Model.CurrentMessage</p>
 <table>
@@ -12,7 +13,9 @@
     {
         <tr>
             <td>@restaurant.Id</td>
-            <td>@restaurant.Name</td>
+            <td>
+                @Html.ActionLink(restaurant.Name, nameof(HomeController.Details), new { id = restaurant.Id })
+            </td>
         </tr>
     }
 </table>

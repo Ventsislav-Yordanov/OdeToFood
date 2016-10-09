@@ -20,7 +20,18 @@ namespace OdeToFood.Controllers
             var model = new HomePageViewModel();
             model.Restaurants = this.restaurantData.GetAll();
             model.CurrentMessage = this.greeter.GetGreeting();
-            return View(model);
+            return this.View(model);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var model = this.restaurantData.Get(id);
+            if (model == null)
+            {
+                return this.RedirectToAction(nameof(this.Index));
+            }
+
+            return this.View(model);
         }
     }
 }
