@@ -1,4 +1,4 @@
-﻿namespace OdeToFood.Models
+﻿namespace OdeToFood.Entities
 {
     public class Restaurant
     {

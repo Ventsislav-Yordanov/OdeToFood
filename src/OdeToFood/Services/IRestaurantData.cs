@@ -1,4 +1,4 @@
-﻿using OdeToFood.Models;
+﻿using OdeToFood.Entities;
 using System.Collections.Generic;
 
 namespace OdeToFood.Services
