@@ -1,7 +1,11 @@
 ﻿@using OdeToFood.Controllers
 @model OdeToFood.ViewModels.HomePageViewModel
 
-<p>@Model.CurrentMessage</p>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @Html.ActionLink("Create new restaurnt", nameof(HomeController.Create))
 <table>
     <thead>
@@ -20,3 +24,7 @@
         </tr>
     }
 </table>
+
+@section footer {
+    <p>@Model.CurrentMessage</p>
+}
