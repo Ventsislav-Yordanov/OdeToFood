@@ -36,6 +36,35 @@ namespace OdeToFood.Controllers
         }
 
         [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = this.restaurantData.Get(id);
+            if (model == null)
+            {
+                return this.RedirectToAction(nameof(HomeController.Index));
+            }
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, RestaurantEditViewModel model)
+        {
+            var restaurant = this.restaurantData.Get(id);
+            if (this.ModelState.IsValid)
+            {
+                restaurant.Cuisine = model.Cuisine;
+                restaurant.Name = model.Name;
+                this.restaurantData.Commit();
+
+                return this.RedirectToAction(nameof(this.Details), new { id = restaurant.Id });
+            }
+
+            return this.View(restaurant);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             return this.View();
@@ -50,8 +79,8 @@ namespace OdeToFood.Controllers
                 var restaurant = new Restaurant();
                 restaurant.Name = model.Name;
                 restaurant.Cuisine = model.Cuisine;
-
                 restaurant = this.restaurantData.Add(restaurant);
+                this.restaurantData.Commit();
 
                 return this.RedirectToAction(nameof(this.Details), new { id = restaurant.Id });
             }

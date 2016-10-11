@@ -16,9 +16,12 @@ namespace OdeToFood.Services
         public Restaurant Add(Restaurant restaurant)
         {
             this.context.Restaurants.Add(restaurant);
-            this.context.SaveChanges();
-
             return restaurant;
+        }
+
+        public void Commit()
+        {
+            this.context.SaveChanges();
         }
 
         public Restaurant Get(int id)

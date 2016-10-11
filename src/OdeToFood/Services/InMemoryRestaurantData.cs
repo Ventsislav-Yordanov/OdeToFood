@@ -26,6 +26,11 @@ namespace OdeToFood.Services
             return restaurant;
         }
 
+        public void Commit()
+        {
+            // no operation here
+        }
+
         public Restaurant Get(int id)
         {
             return restaurants.FirstOrDefault(r => r.Id == id);

@@ -17,7 +17,11 @@
         <tr>
             <td>@restaurant.Id</td>
             <td>
-                <a asp-action="@nameof(HomeController.Details)" asp-route-id="@restaurant.Id">@restaurant.Name</a>
+                @restaurant.Name
+            </td>
+            <td>
+                <a asp-action="@nameof(HomeController.Details)" asp-route-id="@restaurant.Id">Details</a>
+                <a asp-action="@nameof(HomeController.Edit)" asp-route-id="@restaurant.Id">Edit</a>
             </td>
         </tr>
     }

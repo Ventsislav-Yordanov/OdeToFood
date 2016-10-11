@@ -1,11 +1,11 @@
 ﻿@model Restaurant
 
 @{
-    ViewBag.Title = nameof(HomeController.Create);
+    ViewBag.Title = $"{nameof(HomeController.Edit)} {Model.Name}";
 }
 
 <div>
-    <h1>Create</h1>
+    <h1>Editining: @Model.Name</h1>
     <div>
         <form method="post" asp-antiforgery="true">
             <div>
@@ -19,7 +19,7 @@
                 <span asp-validation-for="@Model.Cuisine"></span>
             </div>
             <div>
-                <input type="submit" value="Create!" />
+                <input type="submit" value="Edit!" />
             </div>
         </form>
     </div>
