@@ -1,7 +1,7 @@
 ﻿@model Restaurant
 
-@{ 
-    ViewBag.Title = "Create";
+@{
+    ViewBag.Title = nameof(HomeController.Create);
 }
 
 <div>
@@ -10,14 +10,14 @@
         @using (Html.BeginForm())
         {
             <div>
-                @Html.LabelFor(m => m.Name)
-                @Html.EditorFor(m => m.Name)
-                @Html.ValidationMessageFor(m => m.Name)
+                <label asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" />
+                <span asp-validation-for="@Model.Name"></span>
             </div>
             <div>
-                @Html.LabelFor(m => m.Cuisine)
-                @Html.DropDownListFor(m => m.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)))
-                @Html.ValidationMessageFor(m => m.Cuisine)
+                <label asp-for="@Model.Cuisine"></label>
+                <select asp-for="@Model.Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
+                <span asp-validation-for="@Model.Cuisine"></span>
             </div>
             <div>
                 <input type="submit" value="Create!" />

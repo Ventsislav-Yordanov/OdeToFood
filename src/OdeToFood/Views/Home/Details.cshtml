@@ -8,5 +8,5 @@
 <div>Id: @Model.Id</div>
 <div>Cuisine: @Model.Cuisine</div>
 <div>
-    @Html.ActionLink("Back to home", nameof(HomeController.Index))
+    <a asp-action="@nameof(HomeController.Index)">Back to home</a>
 </div>

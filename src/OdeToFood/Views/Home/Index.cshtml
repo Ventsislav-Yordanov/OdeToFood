@@ -4,7 +4,7 @@
     ViewBag.Title = "Home";
 }
 
-@Html.ActionLink("Create new restaurnt", nameof(HomeController.Create))
+<a asp-action="@nameof(HomeController.Create)">Create new restaurant</a>
 <table>
     <thead>
         <tr>
@@ -17,7 +17,7 @@
         <tr>
             <td>@restaurant.Id</td>
             <td>
-                @Html.ActionLink(restaurant.Name, nameof(HomeController.Details), new { id = restaurant.Id })
+                <a asp-action="@nameof(HomeController.Details)" asp-route-id="@restaurant.Id">@restaurant.Name</a>
             </td>
         </tr>
     }
