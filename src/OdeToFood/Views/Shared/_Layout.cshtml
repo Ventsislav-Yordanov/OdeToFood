@@ -4,7 +4,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <environment names="Development">
+        <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging, Production">
+        <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+              asp-fallback-href="/node_modules/bootstrap/dist/css/bootstrap.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position" />
+    </environment>
 </head>
 <body>
     <nav class="navbar navbar-default">
