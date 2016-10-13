@@ -8,21 +8,21 @@
     <fieldset>
         <legend>Editining: @Model.Name</legend>
         <div class="form-group">
-            <label asp-for="Name" class="col-lg-2 control-label"></label>
-            <div class="col-lg-6">
+            <label asp-for="Name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
                 <input asp-for="Name" class="form-control">
             </div>
             <span asp-validation-for="@Model.Name"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Cuisine" class="col-lg-2 control-label"></label>
-            <div class="col-lg-6">
+            <label asp-for="Cuisine" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
                 <select asp-for="@Model.Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))" class="form-control"></select>
             </div>
             <span asp-validation-for="@Model.Cuisine"></span>
         </div>
         <div class="form-group">
-            <div class="col-lg-6 col-lg-offset-2">
+            <div class="col-sm-6 col-sm-offset-2">
                 <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
