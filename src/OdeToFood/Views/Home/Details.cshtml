@@ -4,9 +4,12 @@
     ViewBag.Title = Model.Name;
 }
 
-<h1>@Model.Name</h1>
-<div>Id: @Model.Id</div>
-<div>Cuisine: @Model.Cuisine</div>
-<div>
-    <a asp-action="@nameof(HomeController.Index)">Back to home</a>
-</div>
+<section class="panel panel-default">
+    <h3 class="panel-heading">@Model.Name</h3>
+    <div class="panel-body">
+        <p>Id: @Model.Id</p>
+        <p>Cuisine: @Model.Cuisine</p>
+    </div>
+</section>
+
+<a class="btn btn-default" asp-action="@nameof(HomeController.Index)">Back to home</a>

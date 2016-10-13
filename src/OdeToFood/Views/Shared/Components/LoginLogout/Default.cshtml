@@ -2,11 +2,11 @@
 {
     <span>Hello, @User.Identity.Name</span>
     <form method="post" asp-controller="Account" asp-action="@nameof(AccountController.Logout)" asp-antiforgery="true">
-        <input type="submit" value="Logout" />
+        <input class="btn btn-default" type="submit" value="Logout" />
     </form>
 }
 else
 {
-    <a asp-controller="Account" asp-action="@nameof(AccountController.Register)">Register</a>
-    <a asp-controller="Account" asp-action="@nameof(AccountController.Login)">Login</a>
+    <a class="btn btn-default" asp-controller="Account" asp-action="@nameof(AccountController.Register)">Register</a>
+    <a class="btn btn-default" asp-controller="Account" asp-action="@nameof(AccountController.Login)">Login</a>
 }
