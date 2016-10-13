@@ -4,26 +4,30 @@
     ViewBag.Title = nameof(HomeController.Create);
 }
 
-<div>
-    <h1>Create</h1>
-    <div>
-        <form method="post" asp-antiforgery="true">
-            <div>
-                <label asp-for="@Model.Name"></label>
-                <input asp-for="@Model.Name" />
-                <span asp-validation-for="@Model.Name"></span>
+<form class="form-horizontal" method="post" asp-antiforgery="true">
+    <fieldset>
+        <legend>Create</legend>
+        <div class="form-group">
+            <label asp-for="Name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
+                <input asp-for="Name" class="form-control">
             </div>
-            <div>
-                <label asp-for="@Model.Cuisine"></label>
-                <select asp-for="@Model.Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
-                <span asp-validation-for="@Model.Cuisine"></span>
+            <span asp-validation-for="@Model.Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cuisine" class="col-sm-2 control-label"></label>
+            <div class="col-sm-6">
+                <select asp-for="@Model.Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))" class="form-control"></select>
             </div>
-            <div>
-                <input type="submit" value="Create!" />
+            <span asp-validation-for="@Model.Cuisine"></span>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
-        </form>
-    </div>
-</div>
+        </div>
+    </fieldset>
+</form>
 
 <div>
     <a asp-action="@nameof(HomeController.Index)">Back to home</a>
