@@ -47,5 +47,46 @@ namespace OdeToFood.Controllers
 
             return this.View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await this.signInManager.SignOutAsync();
+            return this.RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var loginResult = await this.signInManager.PasswordSignInAsync(
+                    model.Username, model.Password, model.RememberMe, false);
+                if (loginResult.Succeeded)
+                {
+                    if (Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return this.Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction(nameof(HomeController.Index), "Home");
+                    }
+                }
+
+            }
+
+            ModelState.AddModelError(string.Empty, "Could not login");
+
+            return this.View();
+        }
     }
 }
